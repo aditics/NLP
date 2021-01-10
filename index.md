@@ -109,3 +109,43 @@ Perplexity of Shakespeare corpus for:
   
   The best performance was observed with n= 3, k= 0.5 and [0.3,0.2,0.2,0.3], which gives a perplexity of 5685.745970934948 Word-level n-gram model: Observations with n, k and λ.
 ![20](images/20.PNG)
+
+# Exploring Bias from word analogies:
+  The pretrained word2vec embeddings are loaded from the GenSim package:
+  
+   import gensim.downloader as api
+   api.load("word2vec-google-news-300")
+   
+  The loaded word_vectors in memory can be accessed like a dictionary to obtain the embedding of any word. GenSim provides a simple way out of the box to find the most similar words to a given word. 
+  ![21](images/21.PNG)
+  
+  * Cosine Similarity: For quantifying simiarity between words based on their respective word vectors, a common metric is cosine similarity. Formally the cosine similarity between two vectors and, is defined as:
+  
+  ![22](images/22.PNG)
+  
+  ![23](images/23.PNG)
+  
+  * L1 and L2 Similarity:
+  
+  ![24](images/24.PNG)
+  
+  * Synonyms and Antonyms: In general, you would expect to have a high similarity between synonyms and a low similarity score between antonyms. For e.g. "pleasant" would have a higher similarity score to "enjoyable" as compared to "unpleasant". However, counter-intuitievely this is not always the case. Often, the similarity score between a word and its antonym is higher than the similarity score with its synonym. For e.g. "sharp" has a giher similarity score with "blunt" as compared to "pointed".
+  
+  ![25](images/25.PNG)
+  
+  ![26](images/26.PNG)
+  
+  As it can be seen from the last two examples above, the words 'hot' and 'happy' have a higher similarity ratio with their respective antonyms than their antonyms. The reason for this is that word2vec does not capture similarity based on context rather than synonymy. e.g. In the sentence "The weather was -----", in this context the missing word is more likely to be either 'hot' or 'cold', rather than blazing. Hence, the similarity between 'hot' and 'cold' is higher than that between 'hot' and 'blazing'. Similarly, the words 'happy' and 'sad' are more likely to occur in the same context than 'happy' and jovial'.
+  
+  * Analogies:  The Distributional Hypothesis which says that words that occur in the same contexts tend to have similar meanings, leads to an interesting property which allows us to find word analogies like "king" - "man" + "woman" = "queen". 
+  
+  ![27](images/27.PNG)
+  
+  The analogy man:king::woman:queen holds true even when looking at the word embeddings.
+  
+  * Bias: Often, bias creeps into word embeddings. This may be gender, racial or ethnic bias. Let us look at an exampleman: doctor::woman:? gives high scores for "nurse" and "gynecologist", revealing the underlying gender stereotypes within these job roles.
+  
+  ![28](images/28.PNG)
+  
+  The examples observed above are stereotypical gender biases which are widely observed in languages. The reason for the existence of this bias can be traced to the text data the word2vec model is trained on. These text data reflect the common human biases related to gender, race, religion etc. The more that models are trained on these text data, the more these biases are amplified.
+  
