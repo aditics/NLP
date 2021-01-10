@@ -1,12 +1,12 @@
 # Text Classification for Hate Speech
   Our goal here is to build a Naive Bayes Model and Logistic Regression model on a real-world hate speech classification dataset. The dataset is collected from Twitter online. Each example is labeled as 1 (hatespeech) or 0 (Non-hatespeech).
 
-  ![1](images/1.PNG)
+![1](images/1.PNG)
 
 ## Naive Bayes 
   Naive Bayes model was implemented with add-1 smoothing.
   
-  ![2](images/2.PNG)
+![2](images/2.PNG)
   
 ### Trends observed:
     From the two tables above, it can be observed that the top 10 distinctly hatespeech words are words that are commonly used to describe people in a negative way. Some of these words are also directed at a person belonging to a specific race (e.g. asian), religion (e.g. jews), or a having certain political/moral leaning (e.g. liberal). The classifier is able to identify many hateful words correctly. On the other hand, the top 10 non-hatespeech words that were observed are random words like ”thanks”, ”information”, ”check”, or numbers like ”10.00” and ”15” which may not have much meaning in the context of a sentence.
