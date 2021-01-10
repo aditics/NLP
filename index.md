@@ -31,3 +31,6 @@
 and starts dropping at \lambda value 1 and furthermore at value 10. On the other hand, train accuracy remains same for 0, 0.0001 and 0.001. It shows a sight increase for each \lambda value from 0.001 to 0.1 to 1, and drops again at value 10. For \lambda = 1, train accuracy increases, but test accuracy drops. This may be due to over-fitting of data.
 As the train accuracy increases and test accuracy remain steady till 0.1, it can be concluded that \lambda = 0:1 value shows the highest accuracy.
 
+# Text Prediction with Language Modeling
+  This task involved implementing character level and word level n-gram language models along with a character level RNN language model.
+
