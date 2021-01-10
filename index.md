@@ -101,10 +101,11 @@ Perplexity of Shakespeare corpus for:
   
  *  Character-level n-gram model: Observations with n,k and λ. The best performance was observed with n= 2, k = 0.1 and [0.9,0.05,0.05], which gives a perplexity of 7.937964955481074.
   
- ![18](images/18.PNG)
+![18](images/18.PNG)
  
  *  Word-level n-gram model: Observations with n,k and λ
-  ![19](images/19.PNG)
+ 
+![19](images/19.PNG)
   
   The best performance was observed with n= 3, k= 0.5 and [0.3,0.2,0.2,0.3], which gives a perplexity of 5685.745970934948 Word-level n-gram model: Observations with n, k and λ.
-  ![20](images/20.PNG)
+![20](images/20.PNG)
